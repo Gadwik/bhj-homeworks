@@ -17,14 +17,20 @@ class Game {
   }
 
   registerEvents() {
-    /*
-      TODO:
-      Написать обработчик события, который откликается
-      на каждый введённый символ.
-      В случае правильного ввода слова вызываем this.success()
-      При неправильном вводе символа - this.fail();
-     */
-  }
+    const timer = document.getElementById("timer");
+    this.reset();
+     document.addEventListener('keydown', (e) => {
+       console.log(this.currentSymbol.textContent);
+       console.log(e.key);
+       this.currentSymbol.textContent === e.key.toLowerCase() ? this.success() : this.fail();
+     })
+     timer.addEventListener('DOMSubtreeModified', (e) => {
+       if (Number(timer.textContent) === 0) {
+         this.fail();
+       }
+     })
+     
+    }
 
   success() {
     this.currentSymbol.classList.add('symbol_correct');
