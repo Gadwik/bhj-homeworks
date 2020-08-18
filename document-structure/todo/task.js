@@ -4,12 +4,14 @@ const tasks = document.getElementById('tasks');
 const remove = document.querySelector('task__remove');
 
 const addTask = function() {
+    if(input.value !== '') {
     tasks.insertAdjacentHTML('beforeEnd',
     `<div class="task">
         <div class="task__title">${input.value}</div>
         <a href="#" class="task__remove">&times;</a>
     </div>`);
-    input.value = null;
+    input.value = '';
+}
 }
 
 add.addEventListener('click', (event) => {
