@@ -39,5 +39,6 @@ addButtn.forEach(element => {
             increase += Number(ownValue.innerText);
             document.getElementById(id).getElementsByClassName("cart__product-count")[0].innerText = increase;
         }
+        
     });
 });
